@@ -4,7 +4,7 @@
     android:id="@+id/activity_main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.zqf.hxmesgdemo.MainActivity">
+    tools:context="com.zqf.hxmesgdemo.view.activity.MainActivity">
 
     <TextView
         android:id="@+id/start_chart"

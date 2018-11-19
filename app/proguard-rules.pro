@@ -15,3 +15,9 @@
 #-keepclassmembers class fqcn.of.javascript.interface.for.webview {
 #   public *;
 #}
+
+#Mob混淆
+-keep class com.mob.**{*;}
+-keep class cn.sharesdk.**{*;}
+-keep class cn.smssdk.**{*;}
+-dontwarn com.mob.**
