@@ -6,9 +6,5 @@
     android:layout_height="match_parent"
     tools:context="com.zqf.hxmesgdemo.view.activity.MainActivity">
 
-    <TextView
-        android:id="@+id/start_chart"
-        style="@style/main_show_tv_style"
-        android:text="开启聊天" />
 
 </RelativeLayout>

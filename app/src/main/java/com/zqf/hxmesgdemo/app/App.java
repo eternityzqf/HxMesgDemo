@@ -1,14 +1,17 @@
 package com.zqf.hxmesgdemo.app;
 
+import android.annotation.SuppressLint;
 import android.app.ActivityManager;
 import android.app.Application;
 import android.content.Context;
 import android.content.pm.PackageManager;
 import android.util.Log;
 
+import com.blankj.utilcode.util.SPUtils;
 import com.blankj.utilcode.util.Utils;
 import com.hyphenate.chat.EMClient;
 import com.hyphenate.chat.EMOptions;
+import com.hyphenate.easeui.EaseUI;
 
 import java.util.Iterator;
 import java.util.List;
@@ -29,12 +32,15 @@ import okhttp3.OkHttpClient;
 
 public class App extends Application {
 
+    @SuppressLint("StaticFieldLeak")
     private static Context context;
+    private static SPUtils spUtils;
 
     @Override
     public void onCreate() {
         super.onCreate();
         Utils.init(this);
+        spUtils = SPUtils.getInstance("hxMessage");
         //环信初始化连接
         connect();
         //XDroidMvp模式
@@ -92,6 +98,8 @@ public class App extends Application {
     }
 
     private void connect() {
+
+
         EMOptions options = new EMOptions();
         // 默认添加好友时，是不需要验证的，改成需要验证
         options.setAcceptInvitationAlways(false);
@@ -99,6 +107,8 @@ public class App extends Application {
         options.setAutoTransferMessageAttachments(true);
         // 是否自动下载附件类消息的缩略图等，默认为 true 这里和上边这个参数相关联
         options.setAutoDownloadThumbnail(true);
+        //EaseUI使用
+        EaseUI.getInstance().init(this, options);
         int pid = android.os.Process.myPid();
         String processAppName = getAppName(pid);
         // 如果APP启用了远程的service，此application:onCreate会被调用2次
@@ -138,5 +148,9 @@ public class App extends Application {
 
     public static Context getContext() {
         return context;
+    }
+
+    public static SPUtils getSpUtil() {
+        return spUtils;
     }
 }
