@@ -109,9 +109,14 @@
                 <action android:name="android.intent.action.USER_PRESENT" />
             </intent-filter>
         </receiver>
+
         <activity
-            android:name=".view.Register"
+            android:name=".view.RegisterActivity"
             android:screenOrientation="portrait" />
+        <activity
+            android:name=".view.SplashActivity"
+            android:screenOrientation="portrait" />
+        <activity android:name=".view.LoginActivity" />
     </application>
 
 </manifest>

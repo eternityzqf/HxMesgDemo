@@ -13,6 +13,14 @@ import com.hyphenate.chat.EMOptions;
 import java.util.Iterator;
 import java.util.List;
 
+import cn.droidlover.xdroidmvp.net.NetError;
+import cn.droidlover.xdroidmvp.net.NetProvider;
+import cn.droidlover.xdroidmvp.net.RequestHandler;
+import cn.droidlover.xdroidmvp.net.XApi;
+import okhttp3.CookieJar;
+import okhttp3.Interceptor;
+import okhttp3.OkHttpClient;
+
 /**
  * class from
  * Created by zqf
@@ -33,54 +41,54 @@ public class App extends Application {
         initXDroidMvp();
     }
 
-    //初始化MVP
+    //初始化XDroid_MVP
     private void initXDroidMvp() {
-//        XApi.registerProvider(new NetProvider() {
-//            @Override
-//            public okhttp3.Interceptor[] configInterceptors() {
-//                return new okhttp3.Interceptor[0];
-//            }
-//
-//            @Override
-//            public void configHttps(okhttp3.OkHttpClient.Builder builder) {
-//
-//            }
-//
-//            @Override
-//            public okhttp3.CookieJar configCookie() {
-//                return null;
-//            }
-//
-//            @Override
-//            public RequestHandler configHandler() {
-//                return null;
-//            }
-//
-//            @Override
-//            public long configConnectTimeoutMills() {
-//                return 0;
-//            }
-//
-//            @Override
-//            public long configReadTimeoutMills() {
-//                return 0;
-//            }
-//
-//            @Override
-//            public boolean configLogEnable() {
-//                return false;
-//            }
-//
-//            @Override
-//            public boolean handleError(NetError error) {
-//                return false;
-//            }
-//
-//            @Override
-//            public boolean dispatchProgressEnable() {
-//                return false;
-//            }
-//        });
+        XApi.registerProvider(new NetProvider() {
+            @Override
+            public Interceptor[] configInterceptors() {
+                return new Interceptor[0];
+            }
+
+            @Override
+            public void configHttps(OkHttpClient.Builder builder) {
+
+            }
+
+            @Override
+            public CookieJar configCookie() {
+                return null;
+            }
+
+            @Override
+            public RequestHandler configHandler() {
+                return null;
+            }
+
+            @Override
+            public long configConnectTimeoutMills() {
+                return 0;
+            }
+
+            @Override
+            public long configReadTimeoutMills() {
+                return 0;
+            }
+
+            @Override
+            public boolean configLogEnable() {
+                return false;
+            }
+
+            @Override
+            public boolean handleError(NetError error) {
+                return false;
+            }
+
+            @Override
+            public boolean dispatchProgressEnable() {
+                return false;
+            }
+        });
     }
 
     private void connect() {

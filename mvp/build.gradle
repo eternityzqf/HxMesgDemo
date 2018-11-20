@@ -2,8 +2,8 @@ apply plugin: 'com.android.library'
 group = 'com.github.limedroid'
 
 android {
-    compileSdkVersion rootProject.ext.android.compileSdkVersion
-
+    compileSdkVersion 27
+    buildToolsVersion "27.0.3"
     defaultConfig {
         minSdkVersion rootProject.ext.android.minSdkVersion
         targetSdkVersion rootProject.ext.android.targetSdkVersion
@@ -16,7 +16,6 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
     }
-    buildToolsVersion '27.0.3'
 }
 
 dependencies {

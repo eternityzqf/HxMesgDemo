@@ -8,6 +8,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 
+import com.blankj.utilcode.util.ToastUtils;
 import com.hyphenate.chat.EMClient;
 import com.hyphenate.exceptions.HyphenateException;
 import com.zqf.hxmesgdemo.R;
@@ -22,7 +23,7 @@ import butterknife.ButterKnife;
  * Time 2018/3/19 10:06
  */
 
-public class Register extends Activity {
+public class RegisterActivity extends Activity {
 
     @BindView(R.id.register_nickname_edit)
     EditText registerNicknameEdit;
@@ -64,8 +65,10 @@ public class Register extends Activity {
                         try {
                             EMClient.getInstance().createAccount(nick_name, pasw);
                             Log.e("Tag", "注册");
+                            LoginActivity.launch(RegisterActivity.this);
                         } catch (HyphenateException e) {
                             e.printStackTrace();
+                            ToastUtils.showLong("注册失败!请重试");
                         }
                     }
                 }).start();
