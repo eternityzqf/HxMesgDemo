@@ -4,7 +4,6 @@ import android.app.Activity;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
-import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -66,7 +65,6 @@ public class RegisterActivity extends AppCompatActivity {
                     public void run() {
                         try {
                             EMClient.getInstance().createAccount(nick_name, pasw);
-                            Log.e("Tag", "注册");
                             ToastUtils.showShort("注册成功");
                             App.getSpUtil().put("Hx_userName", nick_name);
                             LoginActivity.launch(RegisterActivity.this);

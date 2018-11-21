@@ -11,7 +11,6 @@ import com.blankj.utilcode.util.SPUtils;
 import com.blankj.utilcode.util.Utils;
 import com.hyphenate.chat.EMClient;
 import com.hyphenate.chat.EMOptions;
-import com.hyphenate.easeui.EaseUI;
 
 import java.util.Iterator;
 import java.util.List;
@@ -108,7 +107,7 @@ public class App extends Application {
         // 是否自动下载附件类消息的缩略图等，默认为 true 这里和上边这个参数相关联
         options.setAutoDownloadThumbnail(true);
         //EaseUI使用
-        EaseUI.getInstance().init(this, options);
+//        EaseUI.getInstance().init(this, options);
         int pid = android.os.Process.myPid();
         String processAppName = getAppName(pid);
         // 如果APP启用了远程的service，此application:onCreate会被调用2次
